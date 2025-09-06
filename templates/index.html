@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ws chat</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/htmx-ext-ws@2.0.2"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body style="background-color: #252838">
+    <h1 style="color: #ab9def">Chat</h1>
+    <div hx-ext="ws" ws-connect="ws://localhost:4000/ws">
+      <div>
+        <ul id="chat_room" hx-swap="beforehand" hx-swap-oob="beforehand"></ul>
+      </div>
+      <form ws-send>
+        <input type="text" name="text" placeholder="Enter your message" />
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </body>
+</html>
